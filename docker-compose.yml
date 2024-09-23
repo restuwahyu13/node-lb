@@ -17,7 +17,7 @@ services:
     networks:
       - node-lb-networks
     volumes:
-      - ./service-a/:/usr/src/app
+      - ./service-a:/usr/src/app
       - /usr/src/app/node_modules
 
   service-b:
