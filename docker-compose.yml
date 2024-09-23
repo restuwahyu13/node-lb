@@ -1,0 +1,86 @@
+services:
+
+  service-a:
+    container_name: service-a
+    build:
+      context: service-a
+      dockerfile: Dockerfile
+    restart: always
+    healthcheck:
+      test: env | grep $HOME
+      timeout: 15s
+      interval: 5s
+    environment:
+      - PORT=4000
+    expose:
+      - 4000
+    networks:
+      - node-lb-networks
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  service-b:
+    container_name: service-b
+    build:
+      context: service-b
+      dockerfile: Dockerfile
+    restart: always
+    healthcheck:
+      test: env | grep $HOME
+      timeout: 15s
+      interval: 5s
+    environment:
+      - PORT=4001
+    expose:
+      - 4001
+    networks:
+      - node-lb-networks
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  service-c:
+    container_name: service-c
+    build:
+      context: service-c
+      dockerfile: Dockerfile
+    restart: always
+    healthcheck:
+      test: env | grep $HOME
+      timeout: 15s
+      interval: 5s
+    environment:
+      - PORT=4002
+    expose:
+      - 4002
+    networks:
+      - node-lb-networks
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  proxy:
+    container_name: proxy
+    image: nginx:alpine
+    pull_policy: if_not_present
+    restart: always
+    healthcheck:
+      test: env | grep $HOME
+      timeout: 15s
+      interval: 5s
+    depends_on:
+      - service-a
+      - service-b
+      - service-c
+    ports:
+      - 80:80
+    networks:
+      node-lb-networks:
+    volumes:
+      - ${PWD}/configs:/etc/nginx/conf.d
+      - ${PWD}/nginx.conf:/etc/nginx/nginx.conf
+
+networks:
+  node-lb-networks:
+    driver: bridge

@@ -1,0 +1,19 @@
+{
+  "name": "service-c",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Demo fake service API",
+  "scripts": {
+    "startt": "node ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "Restu Wahyu Saputra",
+    "email": "restuwahyu13@gmail.com",
+    "url": "https://github.com/restuwahyu13"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
