@@ -17,7 +17,7 @@ services:
     networks:
       - node-lb-networks
     volumes:
-      - .:/usr/src/app
+      - ./service-a/:/usr/src/app
       - /usr/src/app/node_modules
 
   service-b:
@@ -37,7 +37,7 @@ services:
     networks:
       - node-lb-networks
     volumes:
-      - .:/usr/src/app
+      - ./service-b:/usr/src/app
       - /usr/src/app/node_modules
 
   service-c:
@@ -57,7 +57,7 @@ services:
     networks:
       - node-lb-networks
     volumes:
-      - .:/usr/src/app
+      - ./service-c:/usr/src/app
       - /usr/src/app/node_modules
 
   proxy:
