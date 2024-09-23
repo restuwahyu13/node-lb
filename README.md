@@ -1,6 +1,6 @@
 # Node Load Balancer
 
-Example ![demo](https://www.youtube.com/watch?v=6CGq5VxmIqY) implementation load balancer using `nginx` with `round robin` strategy.
+Example [demo](https://www.youtube.com/watch?v=6CGq5VxmIqY) implementation load balancer using `nginx` with `round robin` strategy.
 
 ## Commands
 
