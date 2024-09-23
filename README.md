@@ -1,10 +1,10 @@
-# Node Load Balance
+# Node Load Balancer
 
-Example use case demo implementation of a load balancer using `nginx` with `round robin` strategy.
+Example demo implementation load balancer using `nginx` with `round robin` strategy.
 
-## Command
+## Commands
 
-```Makefile
+```makefile
 install:
 	@cd service-a; npm install; cd ..
 	@cd service-b; npm install; cd ..
